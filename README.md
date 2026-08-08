@@ -33,6 +33,10 @@
 - Windows 10 或 Windows 11（x64）
 - 从源码构建时需要 .NET 10 SDK
 
+### 直接下载
+
+普通用户可以从 [Releases](https://github.com/whimy7/stickynotes/releases) 下载 `StickyNotes.exe`。这是 Windows x64 自包含版本，直接运行不需要预装 .NET。
+
 克隆仓库并构建：
 
 ```powershell
@@ -49,7 +53,7 @@ dotnet build .\StickyNotes.slnx
 .\install.ps1
 ```
 
-脚本会生成 Windows x64 自包含单文件版本，将其安装到 `%LOCALAPPDATA%\Programs\StickyNotes`，并创建桌面与开始菜单快捷方式。目标电脑不需要预装 .NET。
+脚本会使用本机的 .NET 10 SDK 生成 Windows x64 自包含单文件版本，将其安装到 `%LOCALAPPDATA%\Programs\StickyNotes`，并创建桌面与开始菜单快捷方式。生成后的应用不需要预装 .NET。
 
 只生成可执行文件时运行：
 
