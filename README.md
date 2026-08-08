@@ -1,4 +1,8 @@
-# 桌面便签
+# 桌面便签 / StickyNotes
+
+[中文](#中文) | [English](#english)
+
+## 中文
 
 一个仅面向 Windows 的轻量桌面便签应用。主界面负责管理便签，单张便签可以独立显示、调整大小、更换颜色并切换始终置顶。
 
@@ -80,3 +84,85 @@ dotnet build .\StickyNotes.slnx
 ## 许可证
 
 本项目使用 [MIT License](LICENSE)。
+
+---
+
+## English
+
+StickyNotes is a lightweight Windows desktop sticky notes application. The main window manages notes, while each note can be displayed independently, resized, recolored, and pinned above other applications.
+
+### Features
+
+- Create, rename, show, hide, and permanently delete notes
+- Display multiple notes at the same time
+- Mix text paragraphs and inline images in one document
+- Insert images at the caret from a file, a clipboard screenshot, or a dropped image file
+- Reorder images by dragging, resize them by dragging or using buttons, open the original, or delete them
+- Undo and redo document edits with buttons, `Ctrl+Z`, `Ctrl+Y`, or `Ctrl+Shift+Z`
+- Auto-save document edits after 500 milliseconds of inactivity
+- Set an individual background color and always-on-top state for each note
+- Restore note position, size, visibility, and topmost state
+- Keep visible notes independent when the main window is minimized
+- Single-instance behavior: launching the app again wakes the existing main window
+- Local-only storage with no account, network, or cloud service
+- Release note windows and keep list and document data when a note is hidden
+- Create rotating ZIP backups at startup and during use, keeping up to 30 backups
+
+### Local data
+
+By default, data is stored in `%LOCALAPPDATA%\\StickyNotes\\notes.json`.
+Inline image files are stored under `%LOCALAPPDATA%\\StickyNotes\\Assets`, grouped by note. A backup is created before deleting a note or image.
+Automatic backups are stored in `%LOCALAPPDATA%\\StickyNotes\\Backups`; each ZIP contains `notes.json` and the images present at that time.
+
+PNG, JPG/JPEG, BMP, and static GIF files are supported, with a 10 MB limit per image. Text and images are stored locally on the computer. Images from the previous attachment-based format are migrated to the end of the corresponding document without deleting existing content.
+
+### Requirements
+
+- Windows 10 or Windows 11 (x64)
+- .NET 10 SDK is required to build from source
+
+### Download
+
+Download `StickyNotes.exe` from the [Releases](https://github.com/whimy7/stickynotes/releases) page. The Windows x64 release is self-contained and does not require .NET to be installed on the target computer.
+
+### Build from source
+
+```powershell
+git clone https://github.com/whimy7/stickynotes.git
+cd stickynotes
+dotnet build .\\StickyNotes.slnx
+```
+
+To install the application and create Desktop and Start menu shortcuts:
+
+```powershell
+.\\install.ps1
+```
+
+The install script uses the .NET 10 SDK to create a self-contained single-file build and installs it under `%LOCALAPPDATA%\\Programs\\StickyNotes`.
+
+To only create the executable:
+
+```powershell
+.\\publish.ps1
+```
+
+The output is `artifacts\\publish\\win-x64\\StickyNotes.exe`.
+
+### Uninstall
+
+The default uninstall command keeps note data:
+
+```powershell
+.\\uninstall.ps1
+```
+
+To also remove local note data:
+
+```powershell
+.\\uninstall.ps1 -RemoveData
+```
+
+### License
+
+This project is released under the [MIT License](LICENSE).
