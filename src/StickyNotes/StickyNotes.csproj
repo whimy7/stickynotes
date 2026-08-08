@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>StickyNotes</AssemblyName>
+    <RootNamespace>StickyNotes</RootNamespace>
+    <ApplicationIcon>Assets\StickyNotes.ico</ApplicationIcon>
+    <Product>桌面便签</Product>
+    <Description>轻量的 Windows 桌面便签应用</Description>
+  </PropertyGroup>
+</Project>

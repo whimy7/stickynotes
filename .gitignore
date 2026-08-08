@@ -1,0 +1,17 @@
+.codex/
+.dotnet/
+.tools/
+artifacts/
+bin/
+obj/
+.vs/
+TestResults/
+*.user
+*.suo
+*.log
+*.pfx
+*.snupkg
+*.nupkg
+dotnet-install.ps1
+Thumbs.db
+.DS_Store
